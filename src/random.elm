@@ -21,16 +21,16 @@ init =
 
 type Msg = 
     Roll
-    | FirstDie Int
+    | Dice (Int, Int)
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model = 
     case msg of
         Roll ->
-            (model, Random.generate FirstDie (Random.int 1 6))
+            (model, Random.generate Dice (Random.pair (Random.int 1 6) (Random.int 1 6)))
 
-        FirstDie firstRandom ->
-            ({model | firstDie = firstRandom, secondDie = firstRandom}, Cmd.none)
+        Dice (firstDie, secondDie) ->
+            ({model | firstDie = firstDie, secondDie = secondDie}, Cmd.none)
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
