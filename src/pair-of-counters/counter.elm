@@ -7,12 +7,14 @@ import Html.Events exposing (onClick)
 type alias Model = 
   { counter : Int
   , max : Int
+  , min : Int
   }
 
 init : Int -> Model
 init count =
   { counter = count
   , max = 0
+  , min = 0
   }  
 
 type Msg
@@ -29,15 +31,22 @@ update msg model =
         if next > model.max then
           {model | counter = next, max = next}
         else
-          {model | counter = next, max = model.max}
+          {model | counter = next}
 
     Decrement ->
-      {model | counter = model.counter - 1}
+      let 
+        next = model.counter - 1
+      in  
+        if next < model.min then
+          {model | counter = next, min = next}
+        else
+          {model | counter = next}
 
 view : Model -> Html Msg
 view model =
   div []
-    [ button [ onClick Decrement ] [ text "-" ]
+    [ div [ countStyle ] [ text ("Min: " ++ (toString model.min)) ]
+    , button [ onClick Decrement ] [ text "-" ]
     , div [ countStyle ] [ text (toString model.counter) ]
     , button [ onClick Increment ] [ text "+" ]
     , div [ countStyle ] [ text ("Max: " ++ (toString model.max)) ]
