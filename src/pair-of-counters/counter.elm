@@ -8,6 +8,7 @@ type alias Model =
   { counter : Int
   , max : Int
   , min : Int
+  , numberOfClicks : Int
   }
 
 init : Int -> Model
@@ -15,6 +16,7 @@ init count =
   { counter = count
   , max = 0
   , min = 0
+  , numberOfClicks = 0
   }  
 
 type Msg
@@ -29,18 +31,18 @@ update msg model =
         next = model.counter + 1
       in  
         if next > model.max then
-          {model | counter = next, max = next}
+          {model | counter = next, max = next, numberOfClicks = model.numberOfClicks + 1}
         else
-          {model | counter = next}
+          {model | counter = next, numberOfClicks = model.numberOfClicks + 1}
 
     Decrement ->
       let 
         next = model.counter - 1
       in  
         if next < model.min then
-          {model | counter = next, min = next}
+          {model | counter = next, min = next, numberOfClicks = model.numberOfClicks + 1}
         else
-          {model | counter = next}
+          {model | counter = next, numberOfClicks = model.numberOfClicks + 1}
 
 view : Model -> Html Msg
 view model =
@@ -50,6 +52,7 @@ view model =
     , div [ countStyle ] [ text (toString model.counter) ]
     , button [ onClick Increment ] [ text "+" ]
     , div [ countStyle ] [ text ("Max: " ++ (toString model.max)) ]
+    , div [ countStyle ] [ text ("Number of clicks: " ++ (toString model.numberOfClicks)) ]
     ]
 
 countStyle : Attribute msg
