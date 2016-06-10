@@ -9,7 +9,7 @@ main =
     , update = update
     , view = view
     }
-    
+
 type alias Model = 
     { topCounter : Counter.Model
     , bottomCounter : Counter.Model
@@ -23,6 +23,7 @@ init top bottom =
 
 type Msg =
     Reset
+    | SwapCounters
     | Top Counter.Msg
     | Bottom Counter.Msg
 
@@ -31,6 +32,9 @@ update message model =
     case message of 
         Reset ->
             init 0 0
+
+        SwapCounters ->
+            { model | topCounter = model.bottomCounter, bottomCounter = model.topCounter }
 
         Top msg ->
             { model | topCounter = Counter.update msg model.topCounter }
@@ -45,4 +49,5 @@ view model =
         [ App.map Top (Counter.view model.topCounter)
         , App.map Bottom (Counter.view model.bottomCounter)
         , button [ onClick Reset ] [ text "RESET"]
+        , button [ onClick SwapCounters ] [ text "SWAP COUNTERS"]
         ]
