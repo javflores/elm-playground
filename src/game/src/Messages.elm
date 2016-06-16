@@ -1,5 +1,7 @@
 module Messages exposing (..)
 
+import Players.Messages
 
-type Msg
-    = NoOp
+
+type Msg = 
+    PlayersMsg Players.Messages.Msg

@@ -1,4 +1,4 @@
 module Players.Messages exposing (..)
 
-type Msg
-= NoOp
+type Msg = 
+    NoOp
