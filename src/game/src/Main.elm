@@ -9,7 +9,7 @@ import Update exposing (update)
 
 init : ( Model, Cmd Msg )
 init =
-    ( "Hello", Cmd.none )
+    ( "Hola", Cmd.none )
 
 
 subscriptions : Model -> Sub Msg
