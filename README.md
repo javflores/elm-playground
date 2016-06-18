@@ -32,6 +32,8 @@ elm-reactor
 
 ## Running tests
 
+### Manual run
+
 Compile the tests:
 
 ```ssh
@@ -42,4 +44,12 @@ Run tests with Node:
 
 ```ssh
 node test.js
+```
+
+### Automatic run of tests:
+
+We use gulp watch until there is an automatic watcher in Elm.
+
+```ssh
+npm test
 ```

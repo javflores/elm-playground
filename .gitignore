@@ -7,3 +7,4 @@ elm-stuff/exact-dependencies.json
 # elm-repl generated files
 repl-temp-*
 elm-stuff/*/*
+node_modules/

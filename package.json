@@ -1,0 +1,26 @@
+{
+  "name": "elm-playground",
+  "version": "1.0.0",
+  "description": "In order to setup packages",
+  "main": "test.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javflores/elm-playground.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javflores/elm-playground/issues"
+  },
+  "homepage": "https://github.com/javflores/elm-playground#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-shell": "^0.5.2"
+  }
+}
