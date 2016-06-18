@@ -28,3 +28,18 @@ To use live debugger:
 ```
 elm-reactor
 ```
+
+
+## Running tests
+
+Compile the tests:
+
+```ssh
+elm-make test/TestRunner.elm --output test.js
+```
+
+Run tests with Node:
+
+```ssh
+node test.js
+```
