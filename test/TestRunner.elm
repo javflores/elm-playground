@@ -2,7 +2,8 @@ module Main exposing (..)
 
 import ElmTest exposing (..)
 --import Example
-import ExampleBDD
+--import ExampleBDD
+import ExampleTypeTest
 
 --tests : Test
 --tests = 
@@ -10,7 +11,7 @@ import ExampleBDD
 
 tests : Test
 tests = 
-    ExampleBDD.tests
+    ExampleTypeTest.tests
 
 main : Program Never
 main =
